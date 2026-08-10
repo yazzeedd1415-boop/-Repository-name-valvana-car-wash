@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: valvana-car-wash
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run render:build
+    startCommand: npm run render:start
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
